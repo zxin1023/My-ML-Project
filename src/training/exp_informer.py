@@ -17,3 +17,5 @@ for epoch in range(6):
         optimizer.step()
         print(f"Epoch {epoch}, Loss: {loss.item()}")
 torch.save(model.state_dict(), 'models/trained/informer.pth')
+
+python 
