@@ -1,0 +1,11 @@
+experiment_id: "EXP-20251226-01"
+model: "ResNet50"
+ckpt_save_dir: "./checkpoints/exp20251226"  # 按实验ID分目录
+hyperparameters":
+  lr: 0.001
+  batch_size: 128
+  epochs: 50
+  optimizer: "AdamW"
+  weight_decay: 0.0001
+model_save_path: "./checkpoints"
+test_dataset: "ImageNet-1k val"

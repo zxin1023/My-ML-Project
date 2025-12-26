@@ -1,0 +1,17 @@
+# DVC pipeline 的最小示例（可选）
+# yaml-language-server: $schema=https://raw.githubusercontent.com/iterative/dvcyaml-schema/master/schema.json
+stages:
+  prepare:
+    cmd: python scripts/prepare_data.py
+    deps:
+      - scripts/prepare_data.py
+    outs:
+      - data/processed
+  train:
+    cmd: python -m src.train --config configs/default.yaml
+    deps:
+      - src/
+      - configs/default.yaml
+      - data/processed
+    outs:
+      - experiments

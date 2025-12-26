@@ -1,0 +1,30 @@
+seed: 42
+run:
+  exp_name: "default"
+  output_dir: "experiments/"
+dataset:
+  name: "ETTH1"
+  data_path: "/data/raw/"
+  batch_size: 256
+  num_workers: 8
+training:
+  epochs: 1
+  batch_size: 256
+  lr: 1e-3
+  weight_decay: 1e-4
+  optimizer: "adamw"
+  scheduler: "cosine"
+  warmup_epochs: 10
+model:
+  name: "base_informer"
+  pretrained: true
+logging:
+  use_wandb: true
+  wandb_project: "my-ml-project"
+  wandb_entity: "my-entity"
+checkpoint:
+  save_dir: "checkpoints/"
+  save_freq: 10
+  save_best: true
+  keep_last_checkpoint: true
+  

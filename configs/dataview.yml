@@ -1,0 +1,78 @@
+---
+id: EXP-20251226-01
+title: "[实验ID]模型名称_数据集_日期"
+tags: ["CNN", "ongoing", "dl-experiment"]
+alias: aaap
+author: 张鑫
+date: 2025-12-26
+status: planned
+baseline: alexnet
+test:
+  a: b
+experiment:
+  model:
+    name: ResNet50
+    pretrained: True
+    num_classes: 1000
+  backbone: ""
+  dataset: ImageNet-1k (val split:0.2, batch_size:128)
+time:
+  start_time: 00:00:00
+  end_time: 00:00:00
+  cost_time: 00:00:00
+---
+
+---
+id: EXP-20251226-01
+title: "[实验ID] 模型名称_数据集_日期"
+tags: ["CNN", "ongoing", "dl-experiment"]
+alias: aaaap
+author: 张鑫
+date: 2025-12-26
+status: planned
+baseline: a
+experiment:
+  model:
+    name: ResNet50 
+    pretrained: True
+    num_classes: 1000
+  backbone: ""
+  datasets: ImageNet-1k (val split:0.2,batch_size:128)
+  
+time:
+  start_time: 00:00:00
+  end_time: 00:00:00
+  cost_time: 00:00:00
+ 
+hyperparameters:
+  seed: 0
+  epochs: 0
+  batch_size: 0
+  optimizer: AdamW
+  lr: 0
+  weight_decay: 0
+  scheduler:
+    CosineAnnealing:
+      T_max: 0
+      eta_min: 0
+  augmentation: 0
+hardware:
+  GPU: RTX 4090 × 1,
+  CUDA: CUDA 12.2,
+  Pytorch: PyTorch 2.1
+  
+results:
+  train_loss: 0.00 (epoch 50)
+  val_acc: 0.00% (epoch 45)
+  other_metrics:
+  png:
+    - loss_curve.png
+    - accuracy_curve.png
+  best_checkpoint: ./checkpoints/resnet50_best.pth
+notes: 学习率在 epoch 30 后下降过快，导致后期震荡
+links:
+  code: https://github.com/xxx/xxx/commit/abc123
+  tensorboard: ./logs/resnet50_exp1
+  wandb: ./logs/resnet50_exp1
+paper: (resnet[https://arxiv.org/abs/1512.03385]
+---

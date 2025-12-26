@@ -1,0 +1,24 @@
+# 实验基本信息
+exp_name: "informer_base_20251225"
+seed: 42
+
+# 数据配置
+data_path: "/data/raw/"
+batch_size: 64
+num_workers: 8
+
+# 模型配置
+model: "base_informer"
+pretrained: true
+
+# 训练配置
+lr: 1e-3
+weight_decay: 1e-4
+epochs: 100
+optimizer: "adamw"
+scheduler: "cosine"
+
+# 输出配置
+save_dir: "experiments/exp1_20251225"
+log_freq: 10
+save_freq: 10

@@ -1,0 +1,25 @@
+./experiments
+/data
+notebooks/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Data / experiments
+data/processed/
+experiments/
+artifacts/
+*.pt
+
+# DVC
+.dvc/
+*.dvc
+
+# W&B
+wandb/
+.wandb/
+
+# Others
+.env

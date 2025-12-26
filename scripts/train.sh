@@ -1,0 +1,1 @@
+python src/trainers/exp_informer.py --config config/model_config.yml
