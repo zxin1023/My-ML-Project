@@ -28,11 +28,7 @@ except Exception:
 
 def get_git_hash():
     try:
-        return (
-            subprocess.check_output(["git", "rev-parse", "HEAD"])
-            .decode("utf-8")
-            .strip()
-        )
+        return subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
     except Exception:
         return "unknown"
 

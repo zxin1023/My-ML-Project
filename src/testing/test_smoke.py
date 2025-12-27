@@ -3,6 +3,7 @@ import subprocess
 import sys
 import tempfile
 
+
 def test_smoke_train_runs():
     # 使用一个临时输出目录避免污染 repo
     # 运行训练脚本并确保退出码为 0

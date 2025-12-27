@@ -1,10 +1,9 @@
 import argparse
-import yaml
+from dataclasses import asdict, fields
 from pathlib import Path
 from typing import Any, Dict, Optional, Union
-from dataclasses import asdict, fields
 
-
+import yaml
 from configs.base_config import BaseConfig
 
 
@@ -14,8 +13,8 @@ class ArgsManager:
     该类负责解析命令行参数、合并配置文件参数和命令行参数、
     并将结果存储在一个属性中，方便后续使用。
     """
-     
-    @staticmethod   
+
+    @staticmethod
     def get_parser() -> argparse.ArgumentParser:
         """
         创建并返回一个 ArgumentParser 实例，用于解析命令行参数。
@@ -23,14 +22,14 @@ class ArgsManager:
             argparse.ArgumentParser: 配置好的 ArgumentParser 实例。
         """
         parser = argparse.ArgumentParser(description="Training and Evaluation Script")
-        
+
         # 添加配置文件路径参数
         parser.add_argument("--config", type=Path, default=None, help="Path to the config file")
         # 添加其他命令行参数
-        
+
         return parser
-    
-    @staticmethod   
+
+    @staticmethod
     def parse_args_and_update_config(config_path: str) -> BaseConfig:
         """
         解析命令行参数并更新配置文件参数。
@@ -50,8 +49,8 @@ class ArgsManager:
             if hasattr(args, field_name):
                 setattr(config, field_name, getattr(args, field_name))
         return config
-    
-    @staticmethod   
+
+    @staticmethod
     def load_config_from_file(config_path: str) -> BaseConfig:
         """
         从文件加载配置参数。
@@ -61,8 +60,8 @@ class ArgsManager:
             BaseConfig: 加载后的配置文件对象。
         """
         return BaseConfig.load_config(config_path)
-    
-    @staticmethod   
+
+    @staticmethod
     def update_config_from_args(config: BaseConfig, args: argparse.Namespace) -> BaseConfig:
         """
         更新配置文件参数从命令行参数。
@@ -77,7 +76,7 @@ class ArgsManager:
             if hasattr(args, field_name):
                 setattr(config, field_name, getattr(args, field_name))
         return config
-    
+
     @staticmethod
     def save_config(config: BaseConfig, save_path: Path) -> None:
         """
@@ -94,6 +93,3 @@ def parse_args():
     parser.add_argument("--config", type=str, required=True)
     parser.add_argument("--run_name", type=str, default=None)
     return parser.parse_args()
-
-
-

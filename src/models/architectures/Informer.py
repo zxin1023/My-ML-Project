@@ -9,7 +9,7 @@ class ProbSparseAttention(nn.Module):
         self.n_heads = n_heads
         self.dropout = nn.Dropout(dropout)
         self.softmax = nn.Softmax(dim=-1)
-        
+
     def forward(self, q, k, v, attn_mask=None):
         q = q.view(q.size(0), q.size(1), self.n_heads, self.d_model // self.n_heads)
         k = k.view(k.size(0), k.size(1), self.n_heads, self.d_model // self.n_heads)
@@ -24,7 +24,7 @@ class InformerAttention(nn.Module):
         self.dropout = nn.Dropout(dropout)
         self.softmax = nn.Softmax(dim=-1)
         self.prob_sparse_attention = ProbSparseAttention(d_model, n_heads, dropout)
-        
+
     def forward(self, q, k, v, attn_mask=None):
         q = q.view(q.size(0), q.size(1), self.n_heads, self.d_model // self.n_heads)
         k = k.view(k.size(0), k.size(1), self.n_heads, self.d_model // self.n_heads)

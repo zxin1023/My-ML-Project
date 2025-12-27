@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 
 def save_run_meta(output_dir, meta):

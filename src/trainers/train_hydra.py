@@ -12,11 +12,10 @@ import sys
 from datetime import datetime
 
 import hydra
-from hydra.utils import get_original_cwd
-from omegaconf import DictConfig, OmegaConf
-
 import numpy as np
 import torch
+from hydra.utils import get_original_cwd
+from omegaconf import DictConfig, OmegaConf
 
 try:
     import wandb
@@ -26,11 +25,7 @@ except Exception:
 
 def get_git_hash():
     try:
-        return (
-            subprocess.check_output(["git", "rev-parse", "HEAD"])
-            .decode("utf-8")
-            .strip()
-        )
+        return subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
     except Exception:
         return "unknown"
 

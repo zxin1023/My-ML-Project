@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 
@@ -16,26 +16,16 @@ def preprocess_data(file_path: str) -> pd.DataFrame:
     # 读取数据集
     df = pd.read_csv(file_path)
     # 处理缺失值
-    df.fillna(method='ffill', inplace=True)
+    df.fillna(method="ffill", inplace=True)
     # 特征缩放
     scaler = StandardScaler()
-    df[['OT']] = scaler.fit_transform(df[['OT']])
+    df[["OT"]] = scaler.fit_transform(df[["OT"]])
     # 转换日期时间格式
-    df['date'] = pd.to_datetime(df['date'])
+    df["date"] = pd.to_datetime(df["date"])
     # 设置日期时间为索引
-    df.set_index('date', inplace=True)
+    df.set_index("date", inplace=True)
     # 重采样为1小时频率
-    df = df.resample('1H').mean()
+    df = df.resample("1H").mean()
     # 处理缺失值（如果有）
-    df.fillna(method='ffill', inplace=True)
-    np.save('../../data/processed/ETTh1.npy', df.values)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    df.fillna(method="ffill", inplace=True)
+    np.save("../../data/processed/ETTh1.npy", df.values)
