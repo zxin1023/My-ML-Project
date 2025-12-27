@@ -1,14 +1,24 @@
 ./experiments
 /data
 notebooks/
+*.github/workflows/
+ci_cd/
+github/
+src.egg-info/
+tests/
+.flake8
+
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
+*.mypy_cache/
+*.pytest_cache/
 
 # Data / experiments
 data/processed/
+data/raw/
 experiments/
 artifacts/
 *.pt
